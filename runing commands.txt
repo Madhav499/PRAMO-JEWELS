@@ -1,0 +1,20 @@
+If you want to run it yourself from the project folder, use:
+
+		cd "z:\PRAMO JEWELS\frontend"
+		npm install
+		npm run dev
+
+
+Then open:
+http://localhost:3000
+
+
+If the app needs backend APIs
+Some pages may need the Laravel backend too. In that case, also run:
+
+		cd "z:\PRAMO JEWELS\backend"
+		php artisan serve
+
+Then the API will be available at:
+
+http://127.0.0.1:8000
