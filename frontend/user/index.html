@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pramo Jewels | Haute Joaillerie & Fine Diamond Jewellery</title>
+  <meta name="description" content="Discover Pramo Jewels. Handcrafted solid 18K gold and GIA certified diamond high jewellery. Solitaire rings, emerald necklaces, and bespoke atelier creations.">
+  <link rel="stylesheet" href="../src/styles/main.css">
+</head>
+<body class="bg-[#F8F6F2] text-[#1F1F1F]">
+
+  <!-- Header Placeholder -->
+  <div id="header-container"></div>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#1F1F1F] text-[#F8F6F2] px-4">
+    <!-- Background Image Overlay with subtle dark overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1600&auto=format&fit=crop&q=80" 
+           alt="Pramo Jewels Luxury Heritage" 
+           class="w-full h-full object-cover opacity-40 scale-105 transition-transform duration-1000">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#1F1F1F] via-[#1F1F1F]/40 to-transparent"></div>
+    </div>
+
+    <!-- Floating Parallax Sparkle Accents -->
+    <div class="absolute top-1/4 left-1/6 w-2 h-2 bg-[#C7A76C] rounded-full blur-[1px] floating-jewel opacity-75"></div>
+    <div class="absolute bottom-1/3 right-1/5 w-3 h-3 bg-[#C7A76C] rounded-full blur-[2px] floating-jewel opacity-60"></div>
+
+    <!-- Hero Main Content -->
+    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6 pt-12">
+      <span class="text-xs uppercase tracking-[0.4em] text-[#C7A76C] font-semibold block">
+        ESTABLISHED 1984 • HAUTE JOAILLERIE
+      </span>
+      <h1 class="hero-title font-serif text-4xl sm:text-6xl lg:text-7xl font-light tracking-wide leading-tight">
+        Timeless Elegance.<br>
+        <span class="gold-gradient-text italic">Sculpted in Gold & Light.</span>
+      </h1>
+      <p class="hero-subtitle text-xs sm:text-sm text-[#D7D0C5] max-w-xl mx-auto leading-relaxed tracking-wider font-light">
+        Handcrafted high jewellery pieces crafted with ethically sourced GIA certified diamonds and solid 18K gold.
+      </p>
+      <div class="hero-cta pt-6 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/user/shop.html" class="gold-btn px-8 py-3.5 rounded text-xs font-semibold uppercase tracking-widest">
+          EXPLORE THE COLLECTION
+        </a>
+        <a href="/user/contact.html" class="gold-outline-btn border-[#F8F6F2] text-[#F8F6F2] px-8 py-3.5 rounded text-xs font-semibold uppercase tracking-widest hover:border-[#C7A76C]">
+          BOOK PRIVATE ATELIER
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Category Grid -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#C7A76C] font-semibold">CURATED CATEGORIES</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-light text-[#1F1F1F] mt-2">Discover By Category</h2>
+      <div class="w-12 h-[1px] bg-[#C7A76C] mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Rings -->
+      <a href="/user/shop.html?category=rings" class="group relative h-96 rounded-lg overflow-hidden glass-card reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&auto=format&fit=crop&q=80" alt="Solitaire Rings" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-[#1F1F1F]/20 to-transparent flex flex-col justify-end p-8 text-[#F8F6F2]">
+          <h3 class="font-serif text-2xl font-light">Solitaire Rings</h3>
+          <p class="text-xs text-[#C7A76C] mt-1 tracking-widest uppercase">42 Designs • Explore →</p>
+        </div>
+      </a>
+
+      <!-- Necklaces -->
+      <a href="/user/shop.html?category=necklaces" class="group relative h-96 rounded-lg overflow-hidden glass-card reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&auto=format&fit=crop&q=80" alt="Fine Necklaces" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-[#1F1F1F]/20 to-transparent flex flex-col justify-end p-8 text-[#F8F6F2]">
+          <h3 class="font-serif text-2xl font-light">Fine Necklaces</h3>
+          <p class="text-xs text-[#C7A76C] mt-1 tracking-widest uppercase">28 Designs • Explore →</p>
+        </div>
+      </a>
+
+      <!-- Bracelets -->
+      <a href="/user/shop.html?category=bracelets" class="group relative h-96 rounded-lg overflow-hidden glass-card reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1611591475168-7c8702c2e0b5?w=800&auto=format&fit=crop&q=80" alt="Tennis Bracelets" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-[#1F1F1F]/20 to-transparent flex flex-col justify-end p-8 text-[#F8F6F2]">
+          <h3 class="font-serif text-2xl font-light">Tennis Bracelets</h3>
+          <p class="text-xs text-[#C7A76C] mt-1 tracking-widest uppercase">34 Designs • Explore →</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Featured Spotlight Section -->
+  <section class="bg-[#EDE7DD] py-20 px-4 sm:px-6 lg:px-8 border-t border-b border-[#D7D0C5]">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-[0.3em] text-[#9E7C42] font-bold">HIGH JEWELLERY SPOTLIGHT</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-light text-[#1F1F1F]">The Royal Solitaire Oval Cut</h2>
+        <p class="text-sm text-[#5F5F5F] leading-relaxed">
+          Surrendered to light, the Royal Solitaire exhibits a hand-selected VVS1 clarity diamond elevated in a platinum setting with an 18K solid yellow gold hidden halo band.
+        </p>
+        <div class="flex items-center gap-6 pt-2">
+          <div>
+            <span class="block font-serif text-2xl text-[#1F1F1F]">$4,500</span>
+            <span class="text-xs text-[#5F5F5F]">GIA Certified • BIS Hallmarked</span>
+          </div>
+          <a href="/user/product.html?id=pj-ring-001" class="gold-btn px-6 py-3 rounded text-xs font-semibold uppercase tracking-wider">
+            VIEW DETAILS
+          </a>
+        </div>
+      </div>
+      <div class="img-zoom-container rounded-lg overflow-hidden shadow-2xl reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1000&auto=format&fit=crop&q=80" alt="Royal Solitaire Ring" class="w-full h-[480px] object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- Press & Accolades -->
+  <section class="py-16 px-4 bg-[#F8F6F2] text-center border-b border-[#D7D0C5]">
+    <span class="text-[10px] uppercase tracking-[0.4em] text-[#5F5F5F] font-semibold block mb-8">FEATURED IN LEADING EDITORIALS</span>
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all">
+      <span class="font-serif text-2xl font-bold tracking-widest text-[#1F1F1F]">VOGUE</span>
+      <span class="font-serif text-2xl font-bold tracking-widest text-[#1F1F1F]">HARPER'S BAZAAR</span>
+      <span class="font-serif text-2xl font-bold tracking-widest text-[#1F1F1F]">ELLE</span>
+      <span class="font-serif text-2xl font-bold tracking-widest text-[#1F1F1F]">L'OFFICIEL</span>
+    </div>
+  </section>
+
+  <!-- Footer & Modal Containers -->
+  <div id="footer-container"></div>
+  <div id="cart-drawer-container"></div>
+
+  <!-- Entry Script -->
+  <script type="module">
+    import { renderHeader } from '../src/components/header.js';
+    import { renderFooter } from '../src/components/footer.js';
+    import { renderCartDrawer } from '../src/components/modal.js';
+    import { MotionEngine } from '../src/scripts/animations.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHeader();
+      renderFooter();
+      renderCartDrawer();
+      MotionEngine.init();
+    });
+  </script>
+</body>
+</html>

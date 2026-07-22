@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High Jewellery Detail | Pramo Jewels</title>
+  <meta name="description" content="Configure high jewellery pieces in solid 18K gold, 950 platinum, and certified diamonds. Custom inner band engraving available.">
+  <link rel="stylesheet" href="../src/styles/main.css">
+</head>
+<body class="bg-[#F8F6F2] text-[#1F1F1F]">
+
+  <!-- Header Placeholder -->
+  <div id="header-container"></div>
+
+  <!-- Breadcrumbs -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs text-[#5F5F5F]">
+    <a href="/user/index.html" class="hover:text-[#1F1F1F]">Home</a> / 
+    <a href="/user/shop.html" class="hover:text-[#1F1F1F]">Shop All</a> / 
+    <span id="p-category" class="font-semibold text-[#1F1F1F]">RINGS</span>
+  </div>
+
+  <!-- Main Product Detail Layout -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      
+      <!-- Gallery Column -->
+      <div class="space-y-4">
+        <div class="img-zoom-container rounded-lg overflow-hidden bg-white border border-[#D7D0C5] aspect-square relative">
+          <img id="main-p-image" src="" alt="Fine Jewellery" class="w-full h-full object-cover">
+          <span class="absolute bottom-4 left-4 bg-white/80 backdrop-blur px-3 py-1 text-[11px] rounded text-[#5F5F5F]">
+            Hover to magnify 360° detail
+          </span>
+        </div>
+        <div id="p-thumbnails" class="flex gap-3 overflow-x-auto pb-2"></div>
+      </div>
+
+      <!-- Customization & Purchase Column -->
+      <div class="space-y-6">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-[#9E7C42] font-semibold">GIA CERTIFIED HAUTE JOAILLERIE</span>
+          <h1 id="p-name" class="font-serif text-3xl sm:text-4xl font-light text-[#1F1F1F] mt-1">Product Title</h1>
+          <div class="flex items-center gap-4 mt-2">
+            <span id="p-price" class="font-serif text-2xl font-bold text-[#1F1F1F]">$0</span>
+            <span class="text-xs text-[#6F8F72] bg-[#6F8F72]/15 px-2.5 py-0.5 rounded font-semibold">In Stock • Insured Shipping</span>
+          </div>
+        </div>
+
+        <p id="p-description" class="text-xs text-[#5F5F5F] leading-relaxed">Description text...</p>
+
+        <!-- Metal Customizer -->
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-[#1F1F1F] font-semibold mb-2">Select Precious Metal</label>
+          <div id="p-metals" class="flex flex-wrap gap-3"></div>
+        </div>
+
+        <!-- Carat Weight Customizer -->
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-[#1F1F1F] font-semibold mb-2">Select Diamond Carat</label>
+          <div id="p-carats" class="flex flex-wrap gap-3"></div>
+        </div>
+
+        <!-- Ring Size Selection + Guide -->
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-xs uppercase tracking-wider text-[#1F1F1F] font-semibold">Ring Size (US)</label>
+            <button id="open-size-guide" class="text-xs text-[#C7A76C] hover:underline flex items-center gap-1 font-semibold">
+              <i data-lucide="ruler" class="w-3.5 h-3.5"></i> Ring Size Guide
+            </button>
+          </div>
+          <select id="ring-size-select" class="w-full bg-white border border-[#D7D0C5] rounded p-2.5 text-xs outline-none">
+            <option value="6">US Size 6 (16.5 mm)</option>
+            <option value="7" selected>US Size 7 (17.3 mm)</option>
+            <option value="8">US Size 8 (18.2 mm)</option>
+            <option value="9">US Size 9 (19.0 mm)</option>
+          </select>
+        </div>
+
+        <!-- Custom Engraving Input -->
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-[#1F1F1F] font-semibold mb-1">
+            Custom Inner Band Engraving <span class="text-[#5F5F5F] font-normal">(Complimentary, max 20 chars)</span>
+          </label>
+          <input type="text" id="engraving-input" maxlength="20" placeholder="e.g. Forever & Always" class="w-full bg-white border border-[#D7D0C5] rounded p-2.5 text-xs outline-none focus:border-[#C7A76C]">
+          <p id="engraving-preview" class="text-[11px] text-[#C7A76C] italic mt-1 font-serif"></p>
+        </div>
+
+        <!-- Add to Cart CTA -->
+        <div class="flex gap-4 pt-4 border-t border-[#D7D0C5]">
+          <button id="add-to-bag-btn" class="flex-1 gold-btn py-4 rounded text-xs font-semibold uppercase tracking-widest text-center shadow-lg">
+            ADD TO SHOPPING BAG
+          </button>
+          <button id="p-wishlist-btn" class="p-4 bg-white border border-[#D7D0C5] rounded hover:bg-[#EDE7DD] transition-colors">
+            <i data-lucide="heart" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Trust Features -->
+        <div class="bg-[#EDE7DD] p-4 rounded-lg border border-[#D7D0C5] space-y-2 text-xs text-[#5F5F5F]">
+          <p class="flex items-center gap-2 font-semibold text-[#1F1F1F]">
+            <i data-lucide="shield-check" class="w-4 h-4 text-[#C7A76C]"></i> BIS Hallmarked & GIA Certificate Included
+          </p>
+          <p class="flex items-center gap-2">
+            <i data-lucide="gem" class="w-4 h-4 text-[#C7A76C]"></i> Lifetime Maintenance & Free Ring Sizing within 30 Days
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Ring Size Guide Modal -->
+  <div id="size-guide-modal" class="fixed inset-0 z-50 bg-[#1F1F1F]/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-[#F8F6F2] max-w-md w-full rounded-lg shadow-2xl p-6 border border-[#D7D0C5]">
+      <div class="flex justify-between items-center pb-4 border-b border-[#D7D0C5]">
+        <h3 class="font-serif text-lg font-semibold text-[#1F1F1F]">Pramo Ring Size Guide</h3>
+        <button id="close-size-guide" class="text-[#5F5F5F] hover:text-[#1F1F1F]">&times;</button>
+      </div>
+      <div class="mt-4 space-y-3 text-xs text-[#5F5F5F]">
+        <p>Measure the inside diameter of an existing ring in millimeters:</p>
+        <table class="w-full border-collapse border border-[#D7D0C5] text-left">
+          <tr class="bg-[#EDE7DD]">
+            <th class="p-2 border border-[#D7D0C5]">US Size</th>
+            <th class="p-2 border border-[#D7D0C5]">Inside Diameter</th>
+          </tr>
+          <tr><td class="p-2 border border-[#D7D0C5]">US 6</td><td class="p-2 border border-[#D7D0C5]">16.5 mm</td></tr>
+          <tr><td class="p-2 border border-[#D7D0C5]">US 7</td><td class="p-2 border border-[#D7D0C5]">17.3 mm</td></tr>
+          <tr><td class="p-2 border border-[#D7D0C5]">US 8</td><td class="p-2 border border-[#D7D0C5]">18.2 mm</td></tr>
+          <tr><td class="p-2 border border-[#D7D0C5]">US 9</td><td class="p-2 border border-[#D7D0C5]">19.0 mm</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer & Modals -->
+  <div id="footer-container"></div>
+  <div id="cart-drawer-container"></div>
+
+  <!-- Entry Script -->
+  <script type="module">
+    import { renderHeader } from '../src/components/header.js';
+    import { renderFooter } from '../src/components/footer.js';
+    import { renderCartDrawer } from '../src/components/modal.js';
+    import { ProductEngine } from '../src/scripts/product.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHeader();
+      renderFooter();
+      renderCartDrawer();
+      ProductEngine.init();
+    });
+  </script>
+</body>
+</html>
