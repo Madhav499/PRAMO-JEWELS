@@ -1,0 +1,28 @@
+import { create } from 'zustand';
+import { MetalRates } from '@/types';
+
+interface AppState {
+  metalRates: MetalRates;
+  currency: 'INR' | 'USD' | 'AED';
+  webglProfile: 'ULTRA' | 'HIGH' | 'MEDIUM' | 'LOW' | 'MOBILE' | 'FALLBACK';
+  setWebglProfile: (profile: AppState['webglProfile']) => void;
+  updateMetalRates: (rates: Partial<MetalRates>) => void;
+}
+
+export const useAppStore = create<AppState>((set) => ({
+  metalRates: {
+    gold24k: 7850,  // INR per gram
+    gold22k: 7200,  // INR per gram
+    gold18k: 5900,  // INR per gram
+    platinum: 3450, // INR per gram
+    silver999: 94,  // INR per gram
+    updatedAt: new Date().toISOString(),
+  },
+  currency: 'INR',
+  webglProfile: 'HIGH',
+  setWebglProfile: (profile) => set({ webglProfile: profile }),
+  updateMetalRates: (newRates) =>
+    set((state) => ({
+      metalRates: { ...state.metalRates, ...newRates, updatedAt: new Date().toISOString() },
+    })),
+}));
