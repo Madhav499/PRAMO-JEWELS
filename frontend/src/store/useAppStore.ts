@@ -11,11 +11,11 @@ interface AppState {
 
 export const useAppStore = create<AppState>((set) => ({
   metalRates: {
-    gold24k: 7850,  // INR per gram
-    gold22k: 7200,  // INR per gram
-    gold18k: 5900,  // INR per gram
-    platinum: 3450, // INR per gram
-    silver999: 94,  // INR per gram
+    gold24k: 7850,   // INR per gram (999.9 Fine Gold)
+    gold22k: 7200,   // INR per gram (916 BIS Hallmarked Gold)
+    gold18k: 5900,   // INR per gram (750 Gold)
+    silver999: 94,   // INR per gram (999 Fine Silver)
+    silver925: 88,   // INR per gram (925 Sterling Silver)
     updatedAt: new Date().toISOString(),
   },
   currency: 'INR',

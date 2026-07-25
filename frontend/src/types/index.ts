@@ -1,13 +1,13 @@
-export type MetalType = '24K_GOLD' | '22K_GOLD' | '18K_ROSE_GOLD' | '950_PLATINUM' | '999_SILVER';
+export type MetalType = '24K_GOLD' | '22K_GOLD' | '18K_GOLD' | '999_SILVER' | '925_SILVER';
 
-export type ProductCategory = 'RINGS' | 'NECKLACES' | 'EARRINGS' | 'BRACELETS' | 'PENDANTS' | 'SOLITAIRES' | 'COINS';
+export type ProductCategory = 'GOLD_JEWELLERY' | 'SILVER_JEWELLERY' | 'GOLD_COINS' | 'SILVER_COINS';
 
 export interface MetalRates {
-  gold24k: number; // INR per gram
-  gold22k: number; // INR per gram
-  gold18k: number; // INR per gram
-  platinum: number; // INR per gram
-  silver999: number; // INR per gram
+  gold24k: number;   // INR per gram (999.9 Fine Gold)
+  gold22k: number;   // INR per gram (916 Hallmarked Gold)
+  gold18k: number;   // INR per gram (750 Gold)
+  silver999: number; // INR per gram (999 Fine Silver)
+  silver925: number; // INR per gram (925 Sterling Silver)
   updatedAt: string;
 }
 
@@ -17,16 +17,15 @@ export interface Product {
   name: string;
   category: ProductCategory;
   metalType: MetalType;
-  purity: string; // e.g. "22K (916)", "18K (750)"
+  purity: string; // e.g. "24K (999.9 Fine)", "22K (916 BIS Hallmarked)", "999 Fine Silver"
   metalWeightGram: number;
   makingChargePerGram: number;
-  gemstoneCost: number;
   price: number; // Computed base price
   stockStatus: 'IN_STOCK' | 'LOW_STOCK' | 'MADE_TO_ORDER' | 'OUT_OF_STOCK';
   stockQuantity: number;
   description: string;
   huidVerified: boolean;
-  certificateType: 'IGI' | 'GIA' | 'BIS_HALLMARK';
+  certificateType: 'BIS_HALLMARK' | 'ASSAY_CERTIFICATE' | '9999_FINE_GUARANTEE';
   certificateNumber: string;
   images: string[];
   model3dUrl?: string;
@@ -41,7 +40,7 @@ export interface CartItem {
   id: string;
   product: Product;
   selectedMetal: MetalType;
-  selectedSize?: string;
+  selectedWeightGram?: number;
   quantity: number;
   engravingText?: string;
   giftWrapped?: boolean;

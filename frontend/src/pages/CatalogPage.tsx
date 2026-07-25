@@ -15,7 +15,6 @@ export const CatalogPage: React.FC = () => {
   const { addItem } = useCartStore();
   const { addToast, toggleCart } = useUIStore();
 
-  // Sync URL params if provided
   React.useEffect(() => {
     const cat = searchParams.get('category');
     if (cat) {
@@ -25,21 +24,18 @@ export const CatalogPage: React.FC = () => {
 
   const categories: { label: string; value: ProductCategory | 'ALL' }[] = [
     { label: 'All Collections', value: 'ALL' },
-    { label: 'Solitaire Rings', value: 'SOLITAIRES' },
-    { label: 'Gold Rings', value: 'RINGS' },
-    { label: 'Kundan Necklaces', value: 'NECKLACES' },
-    { label: 'Diamond Earrings', value: 'EARRINGS' },
-    { label: 'Gold Karas & Bangles', value: 'BRACELETS' },
-    { label: 'Pendants', value: 'PENDANTS' },
-    { label: 'Gold Coins', value: 'COINS' },
+    { label: 'Gold Jewellery', value: 'GOLD_JEWELLERY' },
+    { label: 'Silver Jewellery', value: 'SILVER_JEWELLERY' },
+    { label: 'Gold Coins & Bullion', value: 'GOLD_COINS' },
+    { label: 'Silver Coins & Bars', value: 'SILVER_COINS' },
   ];
 
   const metals: { label: string; value: MetalType | 'ALL' }[] = [
     { label: 'All Metals', value: 'ALL' },
     { label: '22K Gold', value: '22K_GOLD' },
-    { label: '18K Rose Gold', value: '18K_ROSE_GOLD' },
-    { label: '950 Platinum', value: '950_PLATINUM' },
     { label: '24K Pure Gold', value: '24K_GOLD' },
+    { label: '18K Gold', value: '18K_GOLD' },
+    { label: '999 Fine Silver', value: '999_SILVER' },
   ];
 
   const filtered = getFilteredProducts();
@@ -49,16 +45,15 @@ export const CatalogPage: React.FC = () => {
       {/* Header Banner */}
       <div className="bg-brand-beige/40 p-8 border border-brand-stone/40 text-center space-y-2">
         <h1 className="font-serif text-4xl font-medium text-brand-charcoal">
-          The Pramo Jewels Masterpiece Vault
+          Pramo Jewels Masterpiece Vault
         </h1>
         <p className="text-xs text-brand-slate max-w-xl mx-auto">
-          Explore certified 22K Gold, 18K Diamond, Solitaire, Kundan, and Platinum haute joaillerie.
+          Explore 22K BIS Hallmarked Gold Jewellery, 999 Fine Silver Accessories, and 24K Assayed Investment Bullion.
         </p>
       </div>
 
       {/* Filter & Sort Bar */}
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-6 border-b border-brand-stone/40">
-        {/* Category Pill Filters */}
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar w-full lg:w-auto pb-2 lg:pb-0">
           {categories.map((cat) => (
             <button
@@ -78,7 +73,6 @@ export const CatalogPage: React.FC = () => {
           ))}
         </div>
 
-        {/* Metal Filter & Sort Dropdown */}
         <div className="flex items-center gap-4 w-full lg:w-auto justify-between lg:justify-end">
           <div className="flex items-center gap-2 text-xs text-brand-slate">
             <Filter className="w-4 h-4 text-brand-gold" />
@@ -117,7 +111,7 @@ export const CatalogPage: React.FC = () => {
       {filtered.length === 0 ? (
         <div className="text-center py-20 bg-white border border-brand-stone/40">
           <h3 className="font-serif text-xl font-medium text-brand-charcoal mb-2">No matching products found</h3>
-          <p className="text-xs text-brand-slate mb-6">Try resetting filters to explore our full jewellery collection.</p>
+          <p className="text-xs text-brand-slate mb-6">Try resetting filters to explore our full gold and silver collection.</p>
           <Button
             onClick={() => {
               setCategory('ALL');

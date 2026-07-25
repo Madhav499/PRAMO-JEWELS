@@ -22,7 +22,12 @@ import { GemstoneGuide } from '@/pages/GemstoneGuide';
 import { AdminLayout } from '@/pages/admin/AdminLayout';
 import { AdminDashboard } from '@/pages/admin/AdminDashboard';
 import { ProductManager } from '@/pages/admin/ProductManager';
+import { CategoryManager } from '@/pages/admin/CategoryManager';
+import { RateManager } from '@/pages/admin/RateManager';
 import { OrderManager } from '@/pages/admin/OrderManager';
+import { HallmarkManager } from '@/pages/admin/HallmarkManager';
+import { CmsManager } from '@/pages/admin/CmsManager';
+import { AuditSettingsManager } from '@/pages/admin/AuditSettingsManager';
 
 export const App: React.FC = () => {
   const location = useLocation();
@@ -68,11 +73,27 @@ export const App: React.FC = () => {
           <Route path="/gold-purity-guide" element={<GoldPurityGuide />} />
           <Route path="/gemstone-guide" element={<GemstoneGuide />} />
 
-          {/* Separate Admin Portal Routes */}
+          {/* 18-Submodule Enterprise Admin Portal Routes */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
             <Route path="products" element={<ProductManager />} />
+            <Route path="categories" element={<CategoryManager />} />
+            <Route path="collections" element={<CategoryManager />} />
+            <Route path="rates" element={<RateManager />} />
+            <Route path="inventory" element={<ProductManager />} />
             <Route path="orders" element={<OrderManager />} />
+            <Route path="customers" element={<CustomerDashboard />} />
+            <Route path="reviews" element={<ProductManager />} />
+            <Route path="coupons" element={<CartDrawer />} />
+            <Route path="shipping" element={<OrderManager />} />
+            <Route path="payments" element={<OrderManager />} />
+            <Route path="returns" element={<OrderManager />} />
+            <Route path="hallmark" element={<HallmarkManager />} />
+            <Route path="cms-homepage" element={<CmsManager />} />
+            <Route path="cms-kb" element={<CmsManager />} />
+            <Route path="roles" element={<AuditSettingsManager />} />
+            <Route path="audit" element={<AuditSettingsManager />} />
+            <Route path="settings" element={<AuditSettingsManager />} />
           </Route>
         </Routes>
       </main>
