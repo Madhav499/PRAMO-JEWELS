@@ -8,6 +8,7 @@ import { SearchModal } from '@/components/features/SearchModal';
 import { HallmarkVerifierModal } from '@/components/features/HallmarkVerifierModal';
 import { RingSizeVisualizerModal } from '@/components/features/RingSizeVisualizerModal';
 import { ToastContainer } from '@/components/ui/ToastContainer';
+import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 
 // Pages
 import { HomePage } from '@/pages/HomePage';
@@ -33,23 +34,33 @@ export const App: React.FC = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
 
-  // Initialize Lenis Smooth Scroll
+  // Initialize Lenis Smooth Scroll with Error Protection
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
+    let lenis: Lenis | null = null;
+    let animationFrameId: number;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    try {
+      if (typeof window !== 'undefined') {
+        lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+        });
+
+        const raf = (time: number) => {
+          if (lenis) lenis.raf(time);
+          animationFrameId = requestAnimationFrame(raf);
+        };
+
+        animationFrameId = requestAnimationFrame(raf);
+      }
+    } catch (e) {
+      console.warn('Lenis smooth scroll initialization skipped:', e);
     }
 
-    requestAnimationFrame(raf);
-
     return () => {
-      lenis.destroy();
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      if (lenis) lenis.destroy();
     };
   }, []);
 
@@ -59,54 +70,56 @@ export const App: React.FC = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-brand-ivory text-brand-charcoal">
-      {!isAdminRoute && <Navbar />}
+    <ErrorBoundary>
+      <div className="min-h-screen flex flex-col justify-between bg-brand-ivory text-brand-charcoal">
+        {!isAdminRoute && <Navbar />}
 
-      <main className="flex-1">
-        <Routes>
-          {/* Customer Storefront Routes */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/product/:id" element={<ProductDetailPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/customer" element={<CustomerDashboard />} />
-          <Route path="/gold-purity-guide" element={<GoldPurityGuide />} />
-          <Route path="/gemstone-guide" element={<GemstoneGuide />} />
+        <main className="flex-1">
+          <Routes>
+            {/* Customer Storefront Routes */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/catalog" element={<CatalogPage />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/customer" element={<CustomerDashboard />} />
+            <Route path="/gold-purity-guide" element={<GoldPurityGuide />} />
+            <Route path="/gemstone-guide" element={<GemstoneGuide />} />
 
-          {/* 18-Submodule Enterprise Admin Portal Routes */}
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="products" element={<ProductManager />} />
-            <Route path="categories" element={<CategoryManager />} />
-            <Route path="collections" element={<CategoryManager />} />
-            <Route path="rates" element={<RateManager />} />
-            <Route path="inventory" element={<ProductManager />} />
-            <Route path="orders" element={<OrderManager />} />
-            <Route path="customers" element={<CustomerDashboard />} />
-            <Route path="reviews" element={<ProductManager />} />
-            <Route path="coupons" element={<CartDrawer />} />
-            <Route path="shipping" element={<OrderManager />} />
-            <Route path="payments" element={<OrderManager />} />
-            <Route path="returns" element={<OrderManager />} />
-            <Route path="hallmark" element={<HallmarkManager />} />
-            <Route path="cms-homepage" element={<CmsManager />} />
-            <Route path="cms-kb" element={<CmsManager />} />
-            <Route path="roles" element={<AuditSettingsManager />} />
-            <Route path="audit" element={<AuditSettingsManager />} />
-            <Route path="settings" element={<AuditSettingsManager />} />
-          </Route>
-        </Routes>
-      </main>
+            {/* 18-Submodule Enterprise Admin Portal Routes */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="products" element={<ProductManager />} />
+              <Route path="categories" element={<CategoryManager />} />
+              <Route path="collections" element={<CategoryManager />} />
+              <Route path="rates" element={<RateManager />} />
+              <Route path="inventory" element={<ProductManager />} />
+              <Route path="orders" element={<OrderManager />} />
+              <Route path="customers" element={<CustomerDashboard />} />
+              <Route path="reviews" element={<ProductManager />} />
+              <Route path="coupons" element={<RateManager />} />
+              <Route path="shipping" element={<OrderManager />} />
+              <Route path="payments" element={<OrderManager />} />
+              <Route path="returns" element={<OrderManager />} />
+              <Route path="hallmark" element={<HallmarkManager />} />
+              <Route path="cms-homepage" element={<CmsManager />} />
+              <Route path="cms-kb" element={<CmsManager />} />
+              <Route path="roles" element={<AuditSettingsManager />} />
+              <Route path="audit" element={<AuditSettingsManager />} />
+              <Route path="settings" element={<AuditSettingsManager />} />
+            </Route>
+          </Routes>
+        </main>
 
-      {!isAdminRoute && <Footer />}
+        {!isAdminRoute && <Footer />}
 
-      {/* Global Modals & Drawers */}
-      <CartDrawer />
-      <SearchModal />
-      <HallmarkVerifierModal />
-      <RingSizeVisualizerModal />
-      <ToastContainer />
-    </div>
+        {/* Global Modals & Drawers */}
+        <CartDrawer />
+        <SearchModal />
+        <HallmarkVerifierModal />
+        <RingSizeVisualizerModal />
+        <ToastContainer />
+      </div>
+    </ErrorBoundary>
   );
 };
 

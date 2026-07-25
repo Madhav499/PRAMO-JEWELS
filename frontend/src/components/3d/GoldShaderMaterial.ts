@@ -1,10 +1,7 @@
 import * as THREE from 'three';
+import { MetalType } from '@/types';
 
-export interface MetalMaterialOptions {
-  metalType: '24K_GOLD' | '22K_GOLD' | '18K_ROSE_GOLD' | '950_PLATINUM' | '999_SILVER';
-}
-
-export function createGoldStandardMaterial(metalType: MetalMaterialOptions['metalType']) {
+export function createGoldStandardMaterial(metalType: MetalType | string) {
   const material = new THREE.MeshStandardMaterial({
     roughness: 0.12,
     metalness: 0.95,
@@ -13,16 +10,17 @@ export function createGoldStandardMaterial(metalType: MetalMaterialOptions['meta
 
   switch (metalType) {
     case '24K_GOLD':
-      material.color = new THREE.Color('#FFD700');
+      material.color = new THREE.Color('#FFD700'); // Pure Gold
       material.roughness = 0.08;
       break;
     case '22K_GOLD':
       material.color = new THREE.Color('#C7A76C'); // Official Champagne Gold
       material.roughness = 0.12;
       break;
+    case '18K_GOLD':
     case '18K_ROSE_GOLD':
-      material.color = new THREE.Color('#E8A598');
-      material.roughness = 0.15;
+      material.color = new THREE.Color('#E8A598'); // Rose Gold / 18K
+      material.roughness = 0.14;
       break;
     case '950_PLATINUM':
       material.color = new THREE.Color('#E5E8EC');
@@ -30,9 +28,17 @@ export function createGoldStandardMaterial(metalType: MetalMaterialOptions['meta
       material.metalness = 0.98;
       break;
     case '999_SILVER':
-      material.color = new THREE.Color('#F0F3F6');
-      material.roughness = 0.10;
-      material.metalness = 0.92;
+      material.color = new THREE.Color('#F0F3F6'); // Pure Silver
+      material.roughness = 0.08;
+      material.metalness = 0.95;
+      break;
+    case '925_SILVER':
+      material.color = new THREE.Color('#D8DEE4'); // Sterling Silver
+      material.roughness = 0.12;
+      material.metalness = 0.90;
+      break;
+    default:
+      material.color = new THREE.Color('#C7A76C');
       break;
   }
 
