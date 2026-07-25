@@ -2,6 +2,13 @@ import React from 'react';
 import { useAppStore } from '@/store/useAppStore';
 import { TrendingUp, ShieldCheck } from 'lucide-react';
 
+const formatRate = (value?: number | null): string => {
+  if (value === undefined || value === null || typeof value !== 'number' || isNaN(value)) {
+    return '--';
+  }
+  return value.toLocaleString('en-IN');
+};
+
 export const LiveMetalRateTicker: React.FC = () => {
   const { metalRates } = useAppStore();
 
@@ -14,15 +21,25 @@ export const LiveMetalRateTicker: React.FC = () => {
             <TrendingUp className="w-3 h-3 text-brand-gold" />
             Live Metal Rates (INR/g):
           </span>
-          <span>24K Gold: <strong className="text-white">₹{metalRates.gold24k.toLocaleString('en-IN')}</strong></span>
+          <span>
+            24K Gold: <strong className="text-white">₹{formatRate(metalRates?.gold24k)}</strong>
+          </span>
           <span className="text-brand-stone/40">|</span>
-          <span>22K Gold: <strong className="text-white">₹{metalRates.gold22k.toLocaleString('en-IN')}</strong></span>
+          <span>
+            22K Gold: <strong className="text-white">₹{formatRate(metalRates?.gold22k)}</strong>
+          </span>
           <span className="text-brand-stone/40">|</span>
-          <span>18K Gold: <strong className="text-white">₹{metalRates.gold18k.toLocaleString('en-IN')}</strong></span>
+          <span>
+            18K Gold: <strong className="text-white">₹{formatRate(metalRates?.gold18k)}</strong>
+          </span>
           <span className="text-brand-stone/40">|</span>
-          <span>Platinum: <strong className="text-white">₹{metalRates.platinum.toLocaleString('en-IN')}</strong></span>
+          <span>
+            999 Silver: <strong className="text-white">₹{formatRate(metalRates?.silver999)}</strong>
+          </span>
           <span className="text-brand-stone/40">|</span>
-          <span>999 Silver: <strong className="text-white">₹{metalRates.silver999.toLocaleString('en-IN')}</strong></span>
+          <span>
+            925 Silver: <strong className="text-white">₹{formatRate(metalRates?.silver925)}</strong>
+          </span>
         </div>
 
         {/* Right: Trust Badge */}

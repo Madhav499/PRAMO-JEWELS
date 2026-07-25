@@ -10,7 +10,7 @@ import { RingSizeVisualizerModal } from '@/components/features/RingSizeVisualize
 import { ToastContainer } from '@/components/ui/ToastContainer';
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 
-// Pages
+// Customer Pages
 import { HomePage } from '@/pages/HomePage';
 import { CatalogPage } from '@/pages/CatalogPage';
 import { ProductDetailPage } from '@/pages/ProductDetailPage';
@@ -19,15 +19,23 @@ import { CustomerDashboard } from '@/pages/CustomerDashboard';
 import { GoldPurityGuide } from '@/pages/GoldPurityGuide';
 import { GemstoneGuide } from '@/pages/GemstoneGuide';
 
-// Admin Pages
+// Admin Pages (18 Sub-Modules)
 import { AdminLayout } from '@/pages/admin/AdminLayout';
 import { AdminDashboard } from '@/pages/admin/AdminDashboard';
 import { ProductManager } from '@/pages/admin/ProductManager';
 import { CategoryManager } from '@/pages/admin/CategoryManager';
+import { CollectionManager } from '@/pages/admin/CollectionManager';
 import { RateManager } from '@/pages/admin/RateManager';
 import { OrderManager } from '@/pages/admin/OrderManager';
+import { CustomerManager } from '@/pages/admin/CustomerManager';
+import { ReviewManager } from '@/pages/admin/ReviewManager';
+import { CouponManager } from '@/pages/admin/CouponManager';
+import { LogisticsManager } from '@/pages/admin/LogisticsManager';
+import { PaymentLogManager } from '@/pages/admin/PaymentLogManager';
+import { ReturnManager } from '@/pages/admin/ReturnManager';
 import { HallmarkManager } from '@/pages/admin/HallmarkManager';
 import { CmsManager } from '@/pages/admin/CmsManager';
+import { RoleManager } from '@/pages/admin/RoleManager';
 import { AuditSettingsManager } from '@/pages/admin/AuditSettingsManager';
 
 export const App: React.FC = () => {
@@ -90,20 +98,20 @@ export const App: React.FC = () => {
               <Route index element={<AdminDashboard />} />
               <Route path="products" element={<ProductManager />} />
               <Route path="categories" element={<CategoryManager />} />
-              <Route path="collections" element={<CategoryManager />} />
+              <Route path="collections" element={<CollectionManager />} />
               <Route path="rates" element={<RateManager />} />
               <Route path="inventory" element={<ProductManager />} />
               <Route path="orders" element={<OrderManager />} />
-              <Route path="customers" element={<CustomerDashboard />} />
-              <Route path="reviews" element={<ProductManager />} />
-              <Route path="coupons" element={<RateManager />} />
-              <Route path="shipping" element={<OrderManager />} />
-              <Route path="payments" element={<OrderManager />} />
-              <Route path="returns" element={<OrderManager />} />
+              <Route path="customers" element={<CustomerManager />} />
+              <Route path="reviews" element={<ReviewManager />} />
+              <Route path="coupons" element={<CouponManager />} />
+              <Route path="shipping" element={<LogisticsManager />} />
+              <Route path="payments" element={<PaymentLogManager />} />
+              <Route path="returns" element={<ReturnManager />} />
               <Route path="hallmark" element={<HallmarkManager />} />
               <Route path="cms-homepage" element={<CmsManager />} />
               <Route path="cms-kb" element={<CmsManager />} />
-              <Route path="roles" element={<AuditSettingsManager />} />
+              <Route path="roles" element={<RoleManager />} />
               <Route path="audit" element={<AuditSettingsManager />} />
               <Route path="settings" element={<AuditSettingsManager />} />
             </Route>

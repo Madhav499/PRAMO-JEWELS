@@ -140,8 +140,8 @@ export const ProductDetailPage: React.FC = () => {
                 <strong className="text-brand-charcoal">₹{product.makingChargePerGram}/g</strong>
               </div>
               <div>
-                <span className="block text-brand-slate/70">Gemstone Value</span>
-                <strong className="text-brand-charcoal">₹{product.gemstoneCost.toLocaleString('en-IN')}</strong>
+                <span className="block text-brand-slate/70">Certified Purity</span>
+                <strong className="text-brand-charcoal">{product.purity}</strong>
               </div>
             </div>
           </div>
